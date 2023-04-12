@@ -37,6 +37,7 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
 
 # custom gems
+gem "devise"
 gem "foreman"
 gem "rubocop"
 gem "rubocop-performance"
