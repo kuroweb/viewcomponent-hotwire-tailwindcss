@@ -1,0 +1,79 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  Exclude:
+    - bin/**/*
+    - db/schema.rb
+    - db/migrate/*.rb
+    - node_modules/**/*
+    - tmp/**/*
+    - vendor/**/*
+    - .pryrc
+  NewCops: enable
+
+Style/AsciiComments:
+  Description: '日本語でのコメントを許可'
+  Enabled: false
+
+Style/Documentation:
+  Description: 'クラスのコメント必須を無視'
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Description: '「frozen_string_literal: true」のチェックを無視'
+  Enabled: false
+
+Metrics/MethodLength:
+  Description: 'メソッドの行数'
+  Max: 30
+
+Style/StringLiterals:
+  Description: 'ダブルクォートに統一'
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Metrics/ClassLength:
+  Description: 'クラス行数'
+  Max: 200
+
+Metrics/AbcSize:
+  Description: 'Abcサイズを無視'
+  Enabled: false
+
+Naming/PredicateName:
+  Description: 'メソッド名のチェックを無視'
+  Enabled: false
+
+Style/NumericLiterals:
+  Description: '数値リテラルでの区切り文字の最小値'
+  MinDigits: 6
+
+Style/RegexpLiteral:
+  Description: '正規表現のスラッシュ記法の中でスラッシュを使用することを許可'
+  AllowInnerSlashes: true
+
+RSpec/ContextWording:
+  Description: 'テストケース名のチェックを無視'
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Description: 'ひとつのテストケースで複数のexpectが存在することを許可'
+  Enabled: false
+
+RSpec/ExampleLength:
+  Description: 'itに含まれるテストコードの行数の制限を無視'
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Description: 'letの定義回数の上限'
+  Enabled: true
+  Max: 8 # default: 5
+  AllowSubject: false # subjectも数に含める
+
+RSpec/NestedGroups:
+  Description: 'ネストの深さ'
+  Enabled: true
+  Max: 7 # default: 3

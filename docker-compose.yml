@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_HOST: db
+    env_file: .env
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./:/app
+      - web-bundle:/usr/local/bundle
+    command: >
+      sh -c "
+        rm -f /app/tmp/pids/server.pid
+        yarn build --watch=forever &
+        yarn build:css --watch=forever &
+        rails s -b 0.0.0.0 -p 3000
+      "
+
+  db:
+    image: mysql/mysql-server:8.0
+    ports:
+      - 3306:3306
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    environment:
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      TZ: 'Asia/Tokyo'
+    stdin_open: true
+    tty: true
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+volumes:
+  web-bundle:
+  mysql-data:
