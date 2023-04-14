@@ -4,5 +4,8 @@
 
 import { application } from './application';
 
-import HelloController from './hello_controller';
-application.register('hello', HelloController);
+import LayoutsHeaderComponentController from '../../components/layouts/header/component';
+application.register('layouts--header--component', LayoutsHeaderComponentController);
+
+import LayoutsBreadcrumbComponentController from '../../components/layouts/breadcrumb/component';
+application.register('layouts--breadcrumb--component', LayoutsBreadcrumbComponentController);

@@ -43,6 +43,7 @@ gem "rubocop"
 gem "rubocop-performance"
 gem "rubocop-rails"
 gem "rubocop-rspec"
+gem "view_component"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
