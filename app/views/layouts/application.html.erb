@@ -9,7 +9,7 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-    <%= render(::Layouts::Header::Component.new) %>
+    <%= render(::Layouts::Header::Component.new(current_user)) %>
     <div class="max-w-[85rem] p-6 mx-auto">
       <%= yield %>
     </div>
