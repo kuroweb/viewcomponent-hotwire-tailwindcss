@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<%# <!DOCTYPE html> %>
 <html>
   <head>
     <title>App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'custom' %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
@@ -13,5 +14,14 @@
     <div class="max-w-[85rem] p-6 mx-auto">
       <%= yield %>
     </div>
+    <% if flash.any? %>
+      <script type="text/javascript">
+        window.addEventListener('load', () => {
+          <% flash.each do |key, value| %>
+            window.notyf['<%= key %>']('<%= value %>');
+          <% end %>
+        })
+      </script>
+    <% end %>
   </body>
 </html>
