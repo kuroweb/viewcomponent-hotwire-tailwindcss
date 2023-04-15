@@ -8,5 +8,11 @@ module.exports = {
     './app/javascript/**/*.js',
     'preline/dist/*.js',
   ],
-  plugins: [require('preline/plugin')],
+  plugins: [
+    require('preline/plugin'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/container-queries'),
+  ],
 };
