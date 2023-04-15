@@ -9,16 +9,10 @@
           <%= f.label :email, class: "block text-gray-700 text-sm font-bold mb-1" %>
           <%= f.email_field :email, class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
-        <div class="pb-1">
+        <div class="pb-8">
           <%= f.label :password, class: "block text-gray-700 text-sm font-bold mb-1" %>
           <%= f.password_field :password, class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
-        <% if devise_mapping.rememberable? %>
-          <div class="pb-4">
-            <%= f.check_box :remember_me, class: "border-gray-200 rounded text-blue-600 focus:ring-blue-500" %>
-            <%= f.label :remember_me %>
-          </div>
-        <% end %>
         <%= f.submit "ログイン", class: "w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded focus:outline-none focus:shadow-outline" %>
       <% end %>
     </div>
