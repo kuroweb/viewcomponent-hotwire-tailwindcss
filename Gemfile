@@ -39,6 +39,7 @@ gem "bootsnap", require: false
 # custom gems
 gem "devise"
 gem "foreman"
+gem "rspec"
 gem "rubocop"
 gem "rubocop-performance"
 gem "rubocop-rails"
