@@ -40,7 +40,6 @@ gem "bootsnap", require: false
 gem "devise"
 gem "draper"
 gem "foreman"
-gem "rspec"
 gem "rubocop"
 gem "rubocop-performance"
 gem "rubocop-rails"
@@ -55,6 +54,9 @@ group :development, :test do
   gem "pry-byebug"
   gem "pry-doc"
   gem "pry-rails"
+  gem "rspec"
+  gem "rspec-queue"
+  gem "rspec-rails"
 end
 
 group :development do
