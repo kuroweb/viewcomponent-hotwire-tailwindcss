@@ -1,6 +1,6 @@
 module Tasks
-  module TaskListCard
-    class Component < ViewComponent::Base
+  module Index
+    class TaskListCardComponent < ViewComponent::Base
       def initialize(tasks)
         @tasks = tasks # Task < ApplicationRecord
         super

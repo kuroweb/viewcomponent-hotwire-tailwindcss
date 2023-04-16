@@ -10,8 +10,8 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
-    <%= render(::Layouts::Header::Component.new(current_user)) %>
-    <%= render(::Layouts::Notyf::Component.new(flash)) %>
+    <%= render(::Layouts::HeaderComponent.new(current_user)) %>
+    <%= render(::Layouts::NotyfComponent.new(flash)) %>
     <div class="max-w-[85rem] p-6 mx-auto">
       <%= yield %>
     </div>
