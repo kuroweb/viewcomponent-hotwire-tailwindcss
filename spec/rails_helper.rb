@@ -60,4 +60,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # MEMO: travel_toを使用するため
+  config.include ActiveSupport::Testing::TimeHelpers
+
+  # MEMO: FactoryBotを使用するため
+  config.include FactoryBot::Syntax::Methods
 end
