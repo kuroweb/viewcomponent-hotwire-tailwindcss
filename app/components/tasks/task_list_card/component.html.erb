@@ -22,8 +22,8 @@
                 <tr>
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800"><%= task.title %></td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"><%= task.summary %></td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"><%= task.due_date %></td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium"><%= task.priority %></td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"><%= task.decorate.readable_due_date %></td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium"><%= task.decorate.readable_priority %></td>
                 </tr>
               <% end %>
             </tbody>

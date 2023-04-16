@@ -38,6 +38,7 @@ gem "bootsnap", require: false
 
 # custom gems
 gem "devise"
+gem "draper"
 gem "foreman"
 gem "rspec"
 gem "rubocop"
