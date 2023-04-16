@@ -44,7 +44,7 @@ module Tasks
       start_date = string_to_date(params.dig(:due_date, :start_date))
       end_date = string_to_date(params.dig(:due_date, :end_date))
 
-      return relation if start_date.nil?
+      return relation if start_date.nil? && end_date.nil?
 
       relation.where(due_date: start_date..end_date)
     end
