@@ -3,17 +3,17 @@
 
 import { application } from "../javascript/controllers/application"
 
-import Layouts__BreadcrumbController from "./layouts/breadcrumb_controller"
-application.register("layouts--breadcrumb", Layouts__BreadcrumbController)
+import Layouts__Breadcrumb__ComponentController from "./layouts/breadcrumb/component_controller"
+application.register("layouts--breadcrumb--component", Layouts__Breadcrumb__ComponentController)
 
-import Layouts__HeaderController from "./layouts/header_controller"
-application.register("layouts--header", Layouts__HeaderController)
+import Layouts__Header__ComponentController from "./layouts/header/component_controller"
+application.register("layouts--header--component", Layouts__Header__ComponentController)
 
-import Layouts__NotyfController from "./layouts/notyf_controller"
-application.register("layouts--notyf", Layouts__NotyfController)
+import Layouts__Notyf__ComponentController from "./layouts/notyf/component_controller"
+application.register("layouts--notyf--component", Layouts__Notyf__ComponentController)
 
-import Tasks__Index__SearchCardController from "./tasks/index/search_card_controller"
-application.register("tasks--index--search-card", Tasks__Index__SearchCardController)
+import Tasks__Index__SearchCard__ComponentController from "./tasks/index/search_card/component_controller"
+application.register("tasks--index--search-card--component", Tasks__Index__SearchCard__ComponentController)
 
-import Tasks__Index__TaskListCardController from "./tasks/index/task_list_card_controller"
-application.register("tasks--index--task-list-card", Tasks__Index__TaskListCardController)
+import Tasks__Index__TaskListCard__ComponentController from "./tasks/index/task_list_card/component_controller"
+application.register("tasks--index--task-list-card--component", Tasks__Index__TaskListCard__ComponentController)

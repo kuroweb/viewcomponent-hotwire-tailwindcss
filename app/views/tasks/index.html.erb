@@ -1,5 +1,5 @@
-<%= render(::Layouts::BreadcrumbComponent.new([
+<%= render(::Layouts::Breadcrumb::Component.new([
   { name: 'タスク一覧', url: '', class_name: 'font-semibold' }
 ])) %>
-<%= render(Tasks::Index::SearchCardComponent.new(search_params)) %>
-<%= render(Tasks::Index::TaskListCardComponent.new(@tasks)) %>
+<%= render(Tasks::Index::SearchCard::Component.new(search_params)) %>
+<%= render(Tasks::Index::TaskListCard::Component.new(@tasks)) %>
