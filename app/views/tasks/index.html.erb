@@ -1,1 +1,4 @@
+<%= render(::Layouts::Breadcrumb::Component.new([
+  { name: 'タスク一覧', url: '', class_name: 'font-semibold' }
+])) %>
 <%= render(Tasks::TaskListCard::Component.new([])) %>
