@@ -24,6 +24,6 @@ class TasksController < ApplicationController
   def search_params
     return {} if params[:search].blank?
 
-    params.require(:search).permit(:title, :summary, :due_date, :priority)
+    params.require(:search).permit(:title, :summary, :priority, { due_date: %i[start_date end_date] })
   end
 end

@@ -8,8 +8,8 @@
               <tr>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500">タイトル</th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500">詳細</th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500">締切日</th>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500">優先度</th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500">締切日</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
@@ -17,8 +17,8 @@
                 <tr>
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800"><%= task.title %></td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"><%= task.summary %></td>
-                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"><%= task.decorate.readable_due_date %></td>
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium"><%= task.decorate.readable_priority %></td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800"><%= task.decorate.readable_due_date %></td>
                 </tr>
               <% end %>
             </tbody>
