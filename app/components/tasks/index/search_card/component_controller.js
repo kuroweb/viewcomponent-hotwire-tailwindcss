@@ -24,10 +24,28 @@ export default class extends Controller {
         });
       };
 
+      // 締切日のリセットボタンを初期化
+      const initDueDateResetButton = () => {
+        const buttonElement = document.getElementById('due_date_reset_button');
+
+        buttonElement.addEventListener('click', () => {
+          const startDatePicker = document.getElementById(
+            'due_date_start_date_field'
+          );
+          const endDatePicker = document.getElementById(
+            'due_date_end_date_field'
+          );
+
+          startDatePicker.value = '';
+          endDatePicker.value = '';
+        });
+      };
+
       return {
         init: () => {
           initStartDatePicker();
           initEndDatePicker();
+          initDueDateResetButton();
         },
       };
     })();

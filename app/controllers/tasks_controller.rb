@@ -4,9 +4,7 @@ class TasksController < ApplicationController
   helper_method :search_params
 
   def index
-    @tasks = current_user.tasks
-
-    # @tasks = Tasks::SearchFinder.call(current_user.tasks, **search_params)
+    @tasks = Tasks::SearchFinder.call(relation: current_user.tasks, params: search_params)
   end
 
   def show; end

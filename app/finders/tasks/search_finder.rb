@@ -7,7 +7,7 @@ module Tasks
       new(...).call
     end
 
-    def initialize(relation = Task.all, **params)
+    def initialize(relation: Task.all, params: {})
       @relation = relation
       @params = params
     end

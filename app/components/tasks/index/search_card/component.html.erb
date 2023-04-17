@@ -23,7 +23,7 @@
         <div>
           <%= f.label "優先度", for: "priority_field", class: "block text-gray-700 text-xs font-bold mb-1" %>
           <%= f.select(
-                "search[priority]", [["すべて", "-1"], ["高", "2"], ["中", "1"], ["低", "0"]],
+                "search[priority]", [["すべて", "-1"], ["高", "high"], ["中", "medium"], ["低", "low"]],
                 { selected: @search_params[:priority] },
                 id: "priority_field",
                 class: "shadow py-2 px-3 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500"
@@ -52,8 +52,16 @@
                   ) %>
             </div>
           </div>
+          <div class="flex justify-end pt-1">
+            <%= button_tag(
+                  "リセット",
+                  type: "button",
+                  id: "due_date_reset_button",
+                  class: "inline-flex justify-center items-center gap-2 rounded-md border border-transparent text-xs font-semibold text-blue-500"
+                ) %>
+          </div>
         </div>
-        <div class="pt-4">
+        <div class="">
           <%= f.submit "検索", class: "w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded focus:outline-none focus:shadow-outline" %>
         </div>
       </div>
