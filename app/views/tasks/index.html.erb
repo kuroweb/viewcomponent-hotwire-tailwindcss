@@ -1,7 +1,21 @@
-<%= render(::Layouts::Breadcrumb::Component.new([
-  { name: 'タスク一覧', url: '', class_name: 'font-semibold' }
-])) %>
-<div class="grid grid-cols-12 gap-8">
+<div class="grid grid-cols-12 items-center">
+  <div class="col-span-8">
+    <%= render(::Layouts::Breadcrumb::Component.new([
+      { name: 'タスク一覧', url: '', class_name: 'font-semibold' }
+    ])) %>
+  </div>
+  <div class="col-span-4">
+    <div class="flex items-end justify-end">
+      <%= button_tag(
+            "＋ タスクを追加",
+            type: "button",
+            class: "py-2 px-4 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm",
+            "data-hs-overlay" => "#task_create_modal"
+          ) %>
+    </div>
+  </div>
+</div>
+<div class="grid grid-cols-12 gap-8 pt-4">
   <div class="col-span-12 md:col-span-3">
     <%= render(Tasks::Index::SearchCard::Component.new(search_params)) %>
   </div>
@@ -9,3 +23,4 @@
     <%= render(Tasks::Index::TaskListCard::Component.new(@tasks)) %>
   </div>
 </div>
+<%= render(Tasks::Index::TaskCreateModal::Component.new) %>
