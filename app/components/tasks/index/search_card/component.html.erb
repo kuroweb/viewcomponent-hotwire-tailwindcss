@@ -3,20 +3,24 @@
     <%= form_with url: tasks_path, method: :get, local: true do |f| %>
       <div class="grid gap-4">
         <div>
-          <%= f.label "タイトル", for: "search[title]", class: "block text-gray-700 text-xs font-bold mb-1" %>
-          <%= f.text_field "search[title]", value: @search_params[:title], class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+          <%= f.label "タイトル", for: "title_field", class: "block text-gray-700 text-xs font-bold mb-1" %>
+          <%= f.text_field "search[title]", value: @search_params[:title],
+                                            id: "title_field", class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
         <div>
-          <%= f.label "詳細", for: "search[summary]", class: "block text-gray-700 text-xs font-bold mb-1" %>
-          <%= f.text_field "search[summary]", value: @search_params[:summary], class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+          <%= f.label "詳細", for: "summary_field", class: "block text-gray-700 text-xs font-bold mb-1" %>
+          <%= f.text_field "search[summary]", value: @search_params[:summary],
+                                              id: "summary_field", class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
         <div>
-          <%= f.label "締切日", for: "search[due_date]", class: "block text-gray-700 text-xs font-bold mb-1" %>
-          <%= f.text_field "search[due_date]", value: @search_params[:due_date], class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+          <%= f.label "締切日", for: "due_date_field", class: "block text-gray-700 text-xs font-bold mb-1" %>
+          <%= f.text_field "search[due_date]", value: @search_params[:due_date],
+                                               id: "due_date_field", class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
         <div>
-          <%= f.label "優先度", for: "search[priority]", class: "block text-gray-700 text-xs font-bold mb-1" %>
-          <%= f.text_field "search[priority]", value: @search_params[:priority], class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+          <%= f.label "優先度", for: "priority_field", class: "block text-gray-700 text-xs font-bold mb-1" %>
+          <%= f.text_field "search[priority]", value: @search_params[:priority],
+                                               id: "priority_field", class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
         </div>
         <div class="pt-4">
           <%= f.submit "検索", class: "w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded focus:outline-none focus:shadow-outline" %>

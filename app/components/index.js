@@ -17,6 +17,3 @@ application.register("tasks--index--search-card--component", Tasks__Index__Searc
 
 import Tasks__Index__TaskListCard__ComponentController from "./tasks/index/task_list_card/component_controller"
 application.register("tasks--index--task-list-card--component", Tasks__Index__TaskListCard__ComponentController)
-
-import Users__SignIn__LoginCard__ComponentController from "./users/sign_in/login_card/component_controller"
-application.register("users--sign-in--login-card--component", Users__SignIn__LoginCard__ComponentController)

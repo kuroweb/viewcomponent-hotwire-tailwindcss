@@ -1,3 +1,4 @@
 /* NOTE: カスタムCSSを記述する場所 */
 @import 'notyf/notyf.min.css';
 @import 'js-datepicker/dist/datepicker.min.css';
+@import 'flatpickr/dist/flatpickr.min.css';
