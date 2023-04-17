@@ -1,13 +1,27 @@
 <div data-controller="tasks--index--search-card--component">
   <div class="flex flex-col bg-white border shadow-sm rounded-xl p-4">
-    <h3 class="text-lg font-bold text-gray-800">
-      検索
-    </h3>
-    <div class="pt-4">
-      <%= form_with url: tasks_path, local: true do |f| %>
-        <%= f.label "タイトル", for: "search[title]", class: "block text-gray-700 text-sm font-bold mb-1" %>
-        <%= f.text_field "search[title]", class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
-      <% end %>
-    </div>
+    <%= form_with url: tasks_path, method: :get, local: true do |f| %>
+      <div class="grid gap-4">
+        <div>
+          <%= f.label "タイトル", for: "search[title]", class: "block text-gray-700 text-xs font-bold mb-1" %>
+          <%= f.text_field "search[title]", value: @search_params[:title], class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        </div>
+        <div>
+          <%= f.label "詳細", for: "search[summary]", class: "block text-gray-700 text-xs font-bold mb-1" %>
+          <%= f.text_field "search[summary]", value: @search_params[:summary], class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        </div>
+        <div>
+          <%= f.label "締切日", for: "search[due_date]", class: "block text-gray-700 text-xs font-bold mb-1" %>
+          <%= f.text_field "search[due_date]", value: @search_params[:due_date], class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        </div>
+        <div>
+          <%= f.label "優先度", for: "search[priority]", class: "block text-gray-700 text-xs font-bold mb-1" %>
+          <%= f.text_field "search[priority]", value: @search_params[:priority], class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+        </div>
+        <div class="pt-4">
+          <%= f.submit "検索", class: "w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 rounded focus:outline-none focus:shadow-outline" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

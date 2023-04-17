@@ -1,5 +1,11 @@
 <%= render(::Layouts::Breadcrumb::Component.new([
   { name: 'タスク一覧', url: '', class_name: 'font-semibold' }
 ])) %>
-<%= render(Tasks::Index::SearchCard::Component.new(search_params)) %>
-<%= render(Tasks::Index::TaskListCard::Component.new(@tasks)) %>
+<div class="grid grid-cols-12 gap-8">
+  <div class="col-span-3">
+    <%= render(Tasks::Index::SearchCard::Component.new(search_params)) %>
+  </div>
+  <div class="col-span-9">
+    <%= render(Tasks::Index::TaskListCard::Component.new(@tasks)) %>
+  </div>
+</div>
