@@ -1,6 +1,6 @@
 module Tasks
   module Index
-    module TaskCreateModal
+    module CreateTaskModal
       class Component < ViewComponent::Base
       end
     end

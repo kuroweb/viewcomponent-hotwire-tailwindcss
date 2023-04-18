@@ -12,11 +12,11 @@ application.register("layouts--header--component", Layouts__Header__ComponentCon
 import Layouts__Notyf__ComponentController from "./layouts/notyf/component_controller"
 application.register("layouts--notyf--component", Layouts__Notyf__ComponentController)
 
+import Tasks__Index__CreateTaskModal__ComponentController from "./tasks/index/create_task_modal/component_controller"
+application.register("tasks--index--create-task-modal--component", Tasks__Index__CreateTaskModal__ComponentController)
+
 import Tasks__Index__SearchCard__ComponentController from "./tasks/index/search_card/component_controller"
 application.register("tasks--index--search-card--component", Tasks__Index__SearchCard__ComponentController)
-
-import Tasks__Index__TaskCreateModal__ComponentController from "./tasks/index/task_create_modal/component_controller"
-application.register("tasks--index--task-create-modal--component", Tasks__Index__TaskCreateModal__ComponentController)
 
 import Tasks__Index__TaskListCard__ComponentController from "./tasks/index/task_list_card/component_controller"
 application.register("tasks--index--task-list-card--component", Tasks__Index__TaskListCard__ComponentController)
