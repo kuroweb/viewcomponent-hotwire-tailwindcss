@@ -1,11 +1,13 @@
 import { Controller } from '@hotwired/stimulus';
 import validator from 'validator';
+import flatpickr from 'flatpickr';
+import { Japanese } from 'flatpickr/dist/l10n/ja';
 
 export default class extends Controller {
   static values = {};
 
   connect() {
-    const CreateTaskForm = (() => {
+    const CreateFormValidation = (() => {
       // タイトル
       const initTitleValidation = () => {
         const validation = () => {
@@ -155,8 +157,27 @@ export default class extends Controller {
       };
     })();
 
+    const CreateForm = (() => {
+      const initDueDatePicker = () => {
+        // faltpickrを日本語化
+        flatpickr.localize(Japanese);
+
+        // 締切日フォームを初期化
+        flatpickr('#due_date_field', {
+          dateFormat: 'Y/m/d',
+        });
+      };
+
+      return {
+        init: () => {
+          initDueDatePicker();
+        },
+      };
+    })();
+
     (() => {
-      CreateTaskForm.init();
+      CreateFormValidation.init();
+      CreateForm.init();
     })();
   }
 }
