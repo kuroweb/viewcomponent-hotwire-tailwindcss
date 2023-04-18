@@ -6,14 +6,20 @@ module Tasks
       new(...).call
     end
 
-    def initialize(params:)
-      @params = params
+    def initialize(task:)
+      @task = task
     end
 
-    def call; end
+    def call
+      if task.destroy
+        ServiceResponse.success
+      else
+        ServiceResponse.error(message: "Tasks::DestroyService is failed.", payload: { task: })
+      end
+    end
 
     private
 
-    attr_reader :params
+    attr_reader :task
   end
 end
