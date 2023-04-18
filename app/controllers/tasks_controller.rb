@@ -24,4 +24,12 @@ class TasksController < ApplicationController
 
     params.require(:search).permit(:title, :summary, :priority, { due_date: %i[start_date end_date] })
   end
+
+  def task_params
+    params.require(:task).permit(task_attributes)
+  end
+
+  def task_attributes
+    %i[title summary priority due_date]
+  end
 end
