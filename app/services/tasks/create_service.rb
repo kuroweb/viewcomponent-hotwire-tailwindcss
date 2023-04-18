@@ -23,7 +23,7 @@ module Tasks
       if task.save
         ServiceResponse.success(payload: task)
       else
-        ServiceResponse.error(message: "Tasks CreateService is failed.", payload: { task: })
+        ServiceResponse.error(message: "Tasks::CreateService is failed.", payload: { task: })
       end
     end
 
