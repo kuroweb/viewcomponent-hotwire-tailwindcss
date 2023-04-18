@@ -157,7 +157,7 @@ export default class extends Controller {
       };
     })();
 
-    const CreateForm = (() => {
+    const CreateFormElement = (() => {
       const initDueDatePicker = () => {
         // faltpickrを日本語化
         flatpickr.localize(Japanese);
@@ -177,7 +177,7 @@ export default class extends Controller {
 
     (() => {
       CreateFormValidation.init();
-      CreateForm.init();
+      CreateFormElement.init();
     })();
   }
 }
