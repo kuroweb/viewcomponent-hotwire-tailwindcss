@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# NOTE: TaskレコードをINSERTするサービスクラス
 module Tasks
   class CreateService
     def self.call(...)
