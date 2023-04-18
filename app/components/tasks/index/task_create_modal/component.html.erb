@@ -6,8 +6,8 @@
         "data-hs-overlay" => "#task_create_modal"
       ) %>
   <div id="task_create_modal" class="hs-overlay bg-gray-700 bg-opacity-50 hidden w-full h-full fixed top-0 left-0 z-[60] overflow-x-hidden overflow-y-auto">
-    <%= form_with url: tasks_path, method: :post, local: true do |f| %>
-      <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)] flex items-center">
+    <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)] flex items-center">
+      <%= form_with url: tasks_path, method: :post, local: true, id: "create_task_form" do |f| %>
         <div class="flex flex-col bg-white border shadow-sm rounded-xl">
           <div class="flex justify-between items-center py-3 px-4 border-b">
             <h3 class="font-bold text-gray-800">
@@ -20,7 +20,7 @@
               </svg>
             </button>
           </div>
-          <div class="p-4 w-[500px] h-[480px] overflow-y-auto">
+          <div class="p-4 w-[500px] h-[500px] overflow-y-auto">
             <div class="grid gap-4">
               <div>
                 <%= f.label "タイトル", for: "title_field", class: "block text-gray-700 text-xs font-bold mb-1" %>
@@ -30,6 +30,7 @@
                       id: "title_field",
                       class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     ) %>
+                <p id="title_field_message" class="text-red-500 text-xs pt-1"></p>
               </div>
               <div>
                 <%= f.label "詳細", for: "summary_field", class: "block text-gray-700 text-xs font-bold mb-1" %>
@@ -40,6 +41,7 @@
                       id: "summary_field",
                       class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     ) %>
+                <p id="summary_field_message" class="text-red-500 text-xs pt-1"></p>
               </div>
               <div>
                 <%= f.label "優先度", for: "priority_field", class: "block text-gray-700 text-xs font-bold mb-1" %>
@@ -49,6 +51,7 @@
                       id: "priority_field",
                       class: "shadow py-2 px-3 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500"
                     ) %>
+                <p id="priority_field_message" class="text-red-500 text-xs pt-1"></p>
               </div>
               <div>
                 <%= f.label "締切日", for: "due_date_field", class: "block text-gray-700 text-xs font-bold mb-1" %>
@@ -58,6 +61,7 @@
                       id: "due_date_field",
                       class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     ) %>
+                <p id="due_date_field_message" class="text-red-500 text-xs pt-1"></p>
               </div>
             </div>
           </div>
@@ -68,7 +72,7 @@
             <%= f.submit "追加", class: "py-3 px-10 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm" %>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

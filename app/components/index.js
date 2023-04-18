@@ -15,5 +15,8 @@ application.register("layouts--notyf--component", Layouts__Notyf__ComponentContr
 import Tasks__Index__SearchCard__ComponentController from "./tasks/index/search_card/component_controller"
 application.register("tasks--index--search-card--component", Tasks__Index__SearchCard__ComponentController)
 
+import Tasks__Index__TaskCreateModal__ComponentController from "./tasks/index/task_create_modal/component_controller"
+application.register("tasks--index--task-create-modal--component", Tasks__Index__TaskCreateModal__ComponentController)
+
 import Tasks__Index__TaskListCard__ComponentController from "./tasks/index/task_list_card/component_controller"
 application.register("tasks--index--task-list-card--component", Tasks__Index__TaskListCard__ComponentController)
