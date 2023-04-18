@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_16_042012) do
     t.string "title", null: false
     t.string "summary"
     t.date "due_date"
-    t.integer "priority", default: 0, null: false
+    t.string "priority", default: "low", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
