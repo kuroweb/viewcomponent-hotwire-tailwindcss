@@ -23,7 +23,19 @@ class TasksController < ApplicationController
 
   def update; end
 
-  def destroy; end
+  def destroy
+    task = Task.find_by(id: params[:id], user_id: current_user.id)
+
+    return redirect_to tasks_path, flash: { alert: "タスクを削除できませんでした。" } if task.nil? # rubocop:disable Rails/I18nLocaleTexts
+
+    result = Tasks::DestroyService.call(task:)
+
+    if result.success?
+      redirect_to tasks_path, flash: { notice: "タスクを削除しました。" } # rubocop:disable Rails/I18nLocaleTexts
+    else
+      redirect_to tasks_path, flash: { alert: "タスクを削除できませんでした。" } # rubocop:disable Rails/I18nLocaleTexts
+    end
+  end
 
   private
 
