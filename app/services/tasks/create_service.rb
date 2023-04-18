@@ -12,7 +12,7 @@ module Tasks
     end
 
     def call
-      task = Task.create(
+      task = Task.new(
         user: params[:user],
         title: params[:title],
         summary: params[:summary],
@@ -20,9 +20,11 @@ module Tasks
         priority: params[:priority]
       )
 
-      return ServiceResponse.error(message: "Tasks CreateService is failed.", payload: { task: }) unless task.persisted?
-
-      ServiceResponse.success(payload: task)
+      if task.save
+        ServiceResponse.success(payload: task)
+      else
+        ServiceResponse.error(message: "Tasks CreateService is failed.", payload: { task: })
+      end
     end
 
     private
