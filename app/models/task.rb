@@ -6,4 +6,6 @@ class Task < ApplicationRecord
   enumerize :priority, in: %i[low medium high]
 
   validates :title, presence: true
+  validates :priority, presence: true
+  validates :due_date, presence: true
 end
