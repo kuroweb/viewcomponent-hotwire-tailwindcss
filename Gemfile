@@ -39,6 +39,7 @@ gem "bootsnap", require: false
 # custom gems
 gem "devise"
 gem "draper"
+gem "enumerize"
 gem "foreman"
 gem "rubocop"
 gem "rubocop-performance"

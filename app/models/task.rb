@@ -1,7 +1,9 @@
 class Task < ApplicationRecord
+  extend Enumerize
+
   belongs_to :user
 
-  validates :title, presence: true
+  enumerize :priority, in: %i[low medium high]
 
-  enum :priority, { low: 0, medium: 1, high: 2 }
+  validates :title, presence: true
 end
