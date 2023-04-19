@@ -6,7 +6,12 @@
   </div>
   <div class="col-span-4">
     <div class="flex items-end justify-end">
-      <%= render(Tasks::Index::CreateTaskModal::Component.new) %>
+      <%= button_tag(
+        "＋ タスクを追加",
+        type: "button",
+        class: "py-2 px-4 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm",
+        "data-hs-overlay" => "#create_task_modal"
+      ) %>
     </div>
   </div>
 </div>
@@ -18,3 +23,4 @@
     <%= render(Tasks::Index::TaskListCard::Component.new(@tasks)) %>
   </div>
 </div>
+<%= render(Tasks::Index::CreateTaskModal::Component.new("create_task_modal")) %>
