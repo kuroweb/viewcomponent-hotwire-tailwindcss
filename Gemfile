@@ -41,6 +41,7 @@ gem "devise"
 gem "draper"
 gem "enumerize"
 gem "foreman"
+gem "kaminari"
 gem "view_component"
 
 group :development, :test do

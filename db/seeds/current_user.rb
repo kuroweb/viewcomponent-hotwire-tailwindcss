@@ -10,9 +10,9 @@ ApplicationRecord.transaction do
   50.times do |i|
     Task.create!(
       user:,
-      title: "current_user_task_#{i}",
-      summary: "current_user_summary_#{i}",
-      due_date: Time.current.to_date.since(i),
+      title: "current_user_task_#{i + 1}",
+      summary: "current_user_summary_#{i + 1}",
+      due_date: Time.current.to_date.since(i + 1),
       priority: Task.priority.values.sample
     )
   end
