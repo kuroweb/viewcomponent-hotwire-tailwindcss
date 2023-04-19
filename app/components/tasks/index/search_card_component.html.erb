@@ -3,41 +3,38 @@
     <%= form_with url: tasks_path, method: :get, local: true do |f| %>
       <div class="grid gap-4">
         <div>
-          <%= f.label "タイトル", for: "title_field", class: "block text-gray-700 text-xs font-bold mb-1" %>
+          <%= f.label "タイトル", for: "search[title]", class: "block text-gray-700 text-xs font-bold mb-1" %>
           <%= f.text_field(
                 "search[title]",
                 value: @search_params[:title],
-                id: "title_field",
                 class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               ) %>
         </div>
         <div>
-          <%= f.label "詳細", for: "summary_field", class: "block text-gray-700 text-xs font-bold mb-1" %>
+          <%= f.label "詳細", for: "search[summary]", class: "block text-gray-700 text-xs font-bold mb-1" %>
           <%= f.text_field(
                 "search[summary]",
                 value: @search_params[:summary],
-                id: "summary_field",
                 class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               ) %>
         </div>
         <div>
-          <%= f.label "優先度", for: "priority_field", class: "block text-gray-700 text-xs font-bold mb-1" %>
+          <%= f.label "優先度", for: "search[priority]", class: "block text-gray-700 text-xs font-bold mb-1" %>
           <%= f.select(
                 "search[priority]", [["すべて", "-1"], ["高", "high"], ["中", "medium"], ["低", "low"]],
                 { selected: @search_params[:priority] },
-                id: "priority_field",
                 class: "shadow py-2 px-3 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500"
               ) %>
         </div>
         <div>
-          <%= f.label "締切日", for: "due_date_start_date_field", class: "block text-gray-700 text-xs font-bold mb-1" %>
+          <%= f.label "締切日", for: "search[due_date][start_date]", class: "block text-gray-700 text-xs font-bold mb-1" %>
           <div class="grid grid-cols-11">
             <div class="col-span-5">
               <%= f.text_field(
                     "search[due_date][start_date]",
                     value: @search_params.dig(:due_date, :start_date),
-                    id: "due_date_start_date_field",
-                    class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+                    "data-tasks--index--search-card-target" => "startDateField"
                   ) %>
             </div>
             <div class="col-span-1 flex justify-center items-center">
@@ -47,8 +44,8 @@
               <%= f.text_field(
                     "search[due_date][end_date]",
                     value: @search_params.dig(:due_date, :end_date),
-                    id: "due_date_end_date_field",
-                    class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
+                    "data-tasks--index--search-card-target" => "endDateField"
                   ) %>
             </div>
           </div>
@@ -56,8 +53,8 @@
             <%= button_tag(
                   "リセット",
                   type: "button",
-                  id: "due_date_reset_button",
-                  class: "inline-flex justify-center items-center gap-2 rounded-md border border-transparent text-xs font-semibold text-blue-500"
+                  class: "inline-flex justify-center items-center gap-2 rounded-md border border-transparent text-xs font-semibold text-blue-500",
+                  "data-tasks--index--search-card-target" => "resetButton"
                 ) %>
           </div>
         </div>
