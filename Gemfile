@@ -41,10 +41,6 @@ gem "devise"
 gem "draper"
 gem "enumerize"
 gem "foreman"
-gem "rubocop"
-gem "rubocop-performance"
-gem "rubocop-rails"
-gem "rubocop-rspec"
 gem "view_component"
 
 group :development, :test do
@@ -55,9 +51,14 @@ group :development, :test do
   gem "pry-byebug"
   gem "pry-doc"
   gem "pry-rails"
+  gem "rails-erd"
   gem "rspec"
   gem "rspec-queue"
   gem "rspec-rails"
+  gem "rubocop"
+  gem "rubocop-performance"
+  gem "rubocop-rails"
+  gem "rubocop-rspec"
 end
 
 group :development do
