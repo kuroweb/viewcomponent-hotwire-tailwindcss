@@ -9,7 +9,7 @@ export default class extends Controller {
       const init = () => {
         document.querySelectorAll('.destroy_task_modal').forEach((e) => {
           e.addEventListener('click', (e) => {
-            this.destroyTaskFormTarget.action = `${this.destroyTaskFormTarget.action}/${e.currentTarget.dataset.id}`;
+            this.destroyTaskFormTarget.action = `/tasks/${e.currentTarget.dataset.id}`;
           });
         });
       };

@@ -97,7 +97,7 @@ export default class extends Controller {
       };
 
       // Submit時のバリデーション
-      const initOnSubmit = () => {
+      const initSubmit = () => {
         this.createTaskFormTarget.addEventListener('submit', (e) => {
           this.titleFieldTarget.dispatchEvent(new Event('change'));
           this.summaryFieldTarget.dispatchEvent(new Event('change'));
@@ -137,7 +137,7 @@ export default class extends Controller {
           initSummaryValidationEvent();
           initDueDateValidationEvent();
           initPriorityValidationEvent();
-          initOnSubmit();
+          initSubmit();
         },
       };
     })();
