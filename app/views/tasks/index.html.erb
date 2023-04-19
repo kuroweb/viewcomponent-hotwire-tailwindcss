@@ -1,6 +1,6 @@
 <div class="grid grid-cols-12 items-center">
   <div class="col-span-8">
-    <%= render(::Layouts::Breadcrumb::Component.new([
+    <%= render(::Layouts::BreadcrumbComponent.new([
       { name: 'タスク一覧', url: '', class_name: 'font-semibold' }
     ])) %>
   </div>
@@ -17,12 +17,12 @@
 </div>
 <div class="grid grid-cols-12 gap-8 pt-4">
   <div class="col-span-12 md:col-span-3">
-    <%= render(Tasks::Index::SearchCard::Component.new(search_params)) %>
+    <%= render(Tasks::Index::SearchCardComponent.new(search_params)) %>
   </div>
   <div class="col-span-12 md:col-span-9">
-    <%= render(Tasks::Index::TaskListCard::Component.new(@tasks)) %>
+    <%= render(Tasks::Index::TaskListCardComponent.new(@tasks)) %>
   </div>
 </div>
-<%= render(Tasks::Index::CreateTaskModal::Component.new("create_task_modal")) %>
-<%= render(Tasks::Index::EditTaskModal::Component.new("edit_task_modal")) %>
-<%= render(Tasks::Index::DestroyTaskModal::Component.new("destroy_task_modal")) %>
+<%= render(Tasks::Index::CreateTaskModalComponent.new("create_task_modal")) %>
+<%= render(Tasks::Index::EditTaskModalComponent.new("edit_task_modal")) %>
+<%= render(Tasks::Index::DestroyTaskModalComponent.new("destroy_task_modal")) %>

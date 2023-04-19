@@ -3,26 +3,26 @@
 
 import { application } from "../javascript/controllers/application"
 
-import Layouts__Breadcrumb__ComponentController from "./layouts/breadcrumb/component_controller"
-application.register("layouts--breadcrumb--component", Layouts__Breadcrumb__ComponentController)
+import Layouts__BreadcrumbController from "./layouts/breadcrumb_controller"
+application.register("layouts--breadcrumb", Layouts__BreadcrumbController)
 
-import Layouts__Header__ComponentController from "./layouts/header/component_controller"
-application.register("layouts--header--component", Layouts__Header__ComponentController)
+import Layouts__HeaderController from "./layouts/header_controller"
+application.register("layouts--header", Layouts__HeaderController)
 
-import Layouts__Notyf__ComponentController from "./layouts/notyf/component_controller"
-application.register("layouts--notyf--component", Layouts__Notyf__ComponentController)
+import Layouts__NotyfController from "./layouts/notyf_controller"
+application.register("layouts--notyf", Layouts__NotyfController)
 
-import Tasks__Index__CreateTaskModal__ComponentController from "./tasks/index/create_task_modal/component_controller"
-application.register("tasks--index--create-task-modal--component", Tasks__Index__CreateTaskModal__ComponentController)
+import Tasks__Index__CreateTaskModalController from "./tasks/index/create_task_modal_controller"
+application.register("tasks--index--create-task-modal", Tasks__Index__CreateTaskModalController)
 
-import Tasks__Index__DestroyTaskModal__ComponentController from "./tasks/index/destroy_task_modal/component_controller"
-application.register("tasks--index--destroy-task-modal--component", Tasks__Index__DestroyTaskModal__ComponentController)
+import Tasks__Index__DestroyTaskModalController from "./tasks/index/destroy_task_modal_controller"
+application.register("tasks--index--destroy-task-modal", Tasks__Index__DestroyTaskModalController)
 
-import Tasks__Index__EditTaskModal__ComponentController from "./tasks/index/edit_task_modal/component_controller"
-application.register("tasks--index--edit-task-modal--component", Tasks__Index__EditTaskModal__ComponentController)
+import Tasks__Index__EditTaskModalController from "./tasks/index/edit_task_modal_controller"
+application.register("tasks--index--edit-task-modal", Tasks__Index__EditTaskModalController)
 
-import Tasks__Index__SearchCard__ComponentController from "./tasks/index/search_card/component_controller"
-application.register("tasks--index--search-card--component", Tasks__Index__SearchCard__ComponentController)
+import Tasks__Index__SearchCardController from "./tasks/index/search_card_controller"
+application.register("tasks--index--search-card", Tasks__Index__SearchCardController)
 
-import Tasks__Index__TaskListCard__ComponentController from "./tasks/index/task_list_card/component_controller"
-application.register("tasks--index--task-list-card--component", Tasks__Index__TaskListCard__ComponentController)
+import Tasks__Index__TaskListCardController from "./tasks/index/task_list_card_controller"
+application.register("tasks--index--task-list-card", Tasks__Index__TaskListCardController)
