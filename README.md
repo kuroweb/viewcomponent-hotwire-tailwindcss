@@ -51,6 +51,8 @@ TODO Appに関するドキュメントを記述.
 
 - [Hotwire, ViewComponent]('../../doc/hotwire/index.md)
 
+---
+
 ## 工夫ポイント
 
 ### 1. Rails7の新機能を利用した開発
