@@ -13,8 +13,6 @@ module Tasks
     end
 
     def call
-      return ServiceResponse.error(message: "Tasks::CreateService is failed.", payload: { task: }) if task.nil?
-
       task.assign_attributes(
         title: params[:title],
         summary: params[:summary],

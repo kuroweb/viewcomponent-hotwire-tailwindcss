@@ -6,7 +6,7 @@
 #     パラメータがすべて正しい場合
 #       「ServiceResponse.success」を返却すること
 #     taskパラメータ」が不正な場合
-#       「ServiceResponse.error」を返却すること
+#       「StandardError」を返却すること」を返却すること
 #     「titleパラメータ」が不正な場合
 #       「ServiceResponse.error」を返却すること
 #     「summaryパラメータ」が不正な場合
@@ -43,9 +43,8 @@ RSpec.describe Tasks::UpdateService, type: :service do
     end
 
     context "「taskパラメータ」が不正な場合" do
-      it "「ServiceResponse.error」を返却すること" do
-        result = described_class.call(task: nil, params: update_task_params)
-        expect(result.error?).to be(true)
+      it "「StandardError」を返却すること" do
+        expect { described_class.call(task: nil, params: update_task_params) }.to raise_error(StandardError)
       end
     end
 
