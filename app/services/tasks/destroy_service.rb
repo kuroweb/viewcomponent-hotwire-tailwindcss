@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# NOTE: Taskレコードを削除するサービスクラス
 module Tasks
   class DestroyService
     def self.call(...)
