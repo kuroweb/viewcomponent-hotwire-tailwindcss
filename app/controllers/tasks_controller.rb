@@ -7,8 +7,6 @@ class TasksController < ApplicationController
     @tasks = Tasks::SearchFinder.call(relation: current_user.tasks, params: search_params)
   end
 
-  def show; end
-
   def edit; end
 
   def create
