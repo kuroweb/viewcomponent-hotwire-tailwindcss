@@ -20,13 +20,9 @@
   - [8. Serviceクラスの導入](#8-serviceクラスの導入)
   - [9. ServiceResponseクラスの導入](#9-serviceresponseクラスの導入)
 
----
-
 ## 概要
 
 TODO Appに関するドキュメントを記述.
-
----
 
 ## 使用技術とバージョン
 
@@ -43,13 +39,9 @@ TODO Appに関するドキュメントを記述.
   - Docker Compose
   - MySQL
 
----
-
 ## セットアップ手順
 
 セットアップ手順は[ここ](doc/install/index.md)から確認することができます.
-
----
 
 ## 関連コマンド
 
@@ -59,13 +51,9 @@ TODO Appに関するドキュメントを記述.
 - [Hotwire](doc/frontend/hotwire.md)
 - [ViewComponent](doc/frontend/view_component.md)
 
----
-
 ## ER図
 
 ![ERD](/erd.png)
-
----
 
 ## 工夫ポイント
 
