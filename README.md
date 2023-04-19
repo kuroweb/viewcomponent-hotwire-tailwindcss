@@ -58,7 +58,7 @@ TODO Appに関するドキュメントを記述.
 
 ## ER図
 
-![ERD]('../../erd.png')
+![ERD]('erd.png')
 
 ---
 
