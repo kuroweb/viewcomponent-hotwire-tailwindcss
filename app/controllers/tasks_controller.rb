@@ -10,7 +10,7 @@ class TasksController < ApplicationController
   def edit; end
 
   def create
-    result = Tasks::CreateService.call(params: task_params)
+    result = Tasks::CreateService.call(params: create_task_params)
 
     if result.success?
       redirect_to tasks_path, flash: { notice: "タスクを追加しました。" } # rubocop:disable Rails/I18nLocaleTexts
@@ -43,7 +43,7 @@ class TasksController < ApplicationController
     params.require(:search).permit(:title, :summary, :priority, { due_date: %i[start_date end_date] })
   end
 
-  def task_params
+  def create_task_params
     params.require(:task).permit(task_attributes).merge(user: current_user)
   end
 

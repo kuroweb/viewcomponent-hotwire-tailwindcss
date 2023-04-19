@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# NOTE: TaskレコードをINSERTするサービスクラス
+# NOTE: Taskレコードを追加するサービスクラス
 module Tasks
   class CreateService
     def self.call(...)
@@ -8,7 +8,7 @@ module Tasks
     end
 
     def initialize(params:)
-      @params = params # type: ApplicationController #task_params
+      @params = params # type: ApplicationController #create_task_params
     end
 
     def call
