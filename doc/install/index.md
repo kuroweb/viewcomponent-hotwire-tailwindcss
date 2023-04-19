@@ -1,10 +1,10 @@
-# 初期セットアップ
+# install / index
 
 ## セットアップ手順
 
 ### 1. node_modulesフォルダを作成
 
-Docker Componseでnode_modulesボリュームをバインドするときに必須であるため.
+Docker Componseでnode_modulesボリュームをバインドするために必要.
 
 ```shell
 todo-app/
