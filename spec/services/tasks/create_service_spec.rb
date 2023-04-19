@@ -21,7 +21,7 @@ require "rails_helper"
 RSpec.describe Tasks::CreateService do
   describe "#call" do
     let!(:user) { create(:user) }
-    let!(:task_params) do
+    let!(:create_task_params) do
       ActionController::Parameters.new(
         {
           task: {
@@ -36,29 +36,29 @@ RSpec.describe Tasks::CreateService do
 
     context "パラメータがすべて正しい場合" do
       it "「ServiceResponse.success」を返却すること" do
-        result = described_class.call(params: task_params)
+        result = described_class.call(params: create_task_params)
         expect(result.success?).to be(true)
       end
     end
 
     context "「userパラメータ」が不正な場合" do
       before do
-        task_params[:user] = nil
+        create_task_params[:user] = nil
       end
 
       it "「ServiceResponse.error」を返却すること" do
-        result = described_class.call(params: task_params)
+        result = described_class.call(params: create_task_params)
         expect(result.error?).to be(true)
       end
     end
 
     context "「titleパラメータ」が不正な場合" do
       before do
-        task_params[:title] = nil
+        create_task_params[:title] = nil
       end
 
       it "「ServiceResponse.error」を返却すること" do
-        result = described_class.call(params: task_params)
+        result = described_class.call(params: create_task_params)
         expect(result.error?).to be(true)
       end
     end
@@ -71,22 +71,22 @@ RSpec.describe Tasks::CreateService do
 
     context "「due_dateパラメータ」が不正な場合" do
       before do
-        task_params[:due_date] = nil
+        create_task_params[:due_date] = nil
       end
 
       it "「ServiceResponse.error」を返却すること" do
-        result = described_class.call(params: task_params)
+        result = described_class.call(params: create_task_params)
         expect(result.error?).to be(true)
       end
     end
 
     context "「priorityパラメータ」が不正な場合" do
       before do
-        task_params[:priority] = nil
+        create_task_params[:priority] = nil
       end
 
       it "「ServiceResponse.error」を返却すること" do
-        result = described_class.call(params: task_params)
+        result = described_class.call(params: create_task_params)
         expect(result.error?).to be(true)
       end
     end
