@@ -7,7 +7,7 @@ export default class extends Controller {
 
   connect() {
     const SearchForm = (() => {
-      // faltpickrを日本語化
+      // flatpickrを日本語化
       flatpickr.localize(Japanese);
 
       // 締切日の開始日フォームを初期化

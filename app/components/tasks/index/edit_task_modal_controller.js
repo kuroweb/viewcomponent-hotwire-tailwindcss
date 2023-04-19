@@ -144,7 +144,7 @@ export default class extends Controller {
 
     const FormElement = (() => {
       const initDueDatePicker = () => {
-        // faltpickrを日本語化
+        // flatpickrを日本語化
         flatpickr.localize(Japanese);
 
         // 締切日フォームを初期化
