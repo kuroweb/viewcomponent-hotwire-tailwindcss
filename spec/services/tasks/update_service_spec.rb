@@ -18,7 +18,7 @@
 
 require "rails_helper"
 
-RSpec.describe Tasks::UpdateService, type: :service do
+RSpec.describe Tasks::UpdateService do
   describe "#call" do
     let!(:user) { create(:user) }
     let!(:task) { create(:task, user:) }
