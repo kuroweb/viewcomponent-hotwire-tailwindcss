@@ -5,7 +5,6 @@
             url: tasks_path,
             method: :post,
             local: true,
-            id: "create_task_form",
             data: { "tasks--index--create-task-modal-target" => "createTaskForm" }
           ) do |f| %>
         <div class="flex flex-col bg-white border shadow-sm rounded-xl">
@@ -27,7 +26,6 @@
                 <%= f.text_field(
                       "task[title]",
                       value: "",
-                      id: "title_field",
                       class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
                       "data-tasks--index--create-task-modal-target" => "titleField"
                     ) %>
@@ -42,7 +40,6 @@
                       "task[summary]",
                       value: "",
                       rows: 10,
-                      id: "summary_field",
                       class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
                       "data-tasks--index--create-task-modal-target" => "summaryField"
                     ) %>
@@ -56,7 +53,6 @@
                 <%= f.select(
                       "task[priority]", [["高", "high"], ["中", "medium"], ["低", "low"]],
                       { selected: "high" },
-                      id: "priority_field",
                       class: "shadow py-2 px-3 pr-9 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500",
                       "data-tasks--index--create-task-modal-target" => "priorityField"
                     ) %>
@@ -70,7 +66,6 @@
                 <%= f.text_field(
                       "task[due_date]",
                       value: "",
-                      id: "due_date_field",
                       class: "shadow appearance-none border-gray-200 rounded w-full py-2 px-3 text-sm text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
                       "data-tasks--index--create-task-modal-target" => "dueDateField"
                     ) %>
