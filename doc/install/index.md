@@ -40,7 +40,7 @@ docker compose run web rails db:create && rails db:migrate
 
 ### 4. seedデータを投入
 
-詳細は[ここ]('../../seed.md)から確認できます.
+詳細は[ここ](seed.md)から確認できます.
 
 ```shell
 docker compose run web rails db:seed

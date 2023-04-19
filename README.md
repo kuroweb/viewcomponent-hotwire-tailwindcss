@@ -45,20 +45,20 @@ TODO Appに関するドキュメントを記述.
 
 ## セットアップ手順
 
-セットアップ手順は[ここ]('../../doc/install/index.md)から確認することができます.
+セットアップ手順は[ここ](doc/install/index.md)から確認することができます.
 
 ---
 
 ## 関連コマンド
 
-- [Hotwire, ViewComponent]('../../doc/hotwire/index.md)
-- [rails-erd]('../../doc/db/index.md)
+- [Hotwire, ViewComponent](doc/hotwire/index.md)
+- [rails-erd](doc/db/index.md)
 
 ---
 
 ## ER図
 
-![ERD]('erd.png')
+![ERD](/erd.png)
 
 ---
 
