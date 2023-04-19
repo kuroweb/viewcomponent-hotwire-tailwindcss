@@ -60,7 +60,7 @@ TODO Appに関するドキュメントを記述.
 
 - Rails7のプロジェクトとしてそのまま利用できることを目標とした.
 - また、Rails7系は経験がないため、学習しながら実装を行なった.
-- バンドラを利用した環境構築(JavaScript Bundling, CSS Bundling)や、HotwireとViewComponentを整合させられるアーキテクチャ構築に向けた試行錯誤で苦労した.
+- バンドラを利用した環境構築(JavaScript Bundling, CSS Bundling)や、HotwireとViewComponentを整合させられるアーキテクチャ構築で苦労した.
 
 ### 2. ViewComponetとHotwireを組み合わせたコンポーネント指向なフロントエンド開発
 
