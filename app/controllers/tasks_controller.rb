@@ -24,7 +24,7 @@ class TasksController < ApplicationController
   def destroy
     task = Task.find_by(id: params[:id], user_id: current_user.id)
 
-    return redirect_to tasks_path, flash: { alert: "タスクを削除できませんでした。" } if task.nil? # rubocop:disable Rails/I18nLocaleTexts
+    return redirect_to tasks_path, flash: { alert: "タスクが見つかりませんでした。" } if task.nil? # rubocop:disable Rails/I18nLocaleTexts
 
     result = Tasks::DestroyService.call(task:)
 
@@ -45,6 +45,10 @@ class TasksController < ApplicationController
 
   def create_task_params
     params.require(:task).permit(task_attributes).merge(user: current_user)
+  end
+
+  def update_task_params
+    params.require(:task).permit(task_attributes)
   end
 
   def task_attributes
