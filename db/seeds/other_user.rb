@@ -7,11 +7,13 @@ ApplicationRecord.transaction do
   user = User.create!(email: "other_user@example.com", password: "example")
 
   # Task
-  Task.create!(
-    user:,
-    title: "other_user_task",
-    summary: "other_user_summary",
-    due_date: Time.current.to_date,
-    priority: "low"
-  )
+  50.times do |i|
+    Task.create!(
+      user:,
+      title: "current_user_task_#{i}",
+      summary: "current_user_summary_#{i}",
+      due_date: Time.current.to_date.since(i),
+      priority: Task.priority.values.sample
+    )
+  end
 end
