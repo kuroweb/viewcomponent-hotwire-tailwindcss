@@ -11,10 +11,10 @@
   - [3. Tailwind CSS の導入](#3-tailwind-css-の導入)
   - [4. Docker, Docker Compose によるローカル開発環境の構築](#4-docker-docker-compose-によるローカル開発環境の構築)
   - [5. ドキュメントの整備](#5-ドキュメントの整備)
-  - [6. ServiceResponseクラスの導入](#6-serviceresponseクラスの導入)
-  - [7. Decoratorクラスの導入](#7-decoratorクラスの導入)
-  - [8. Finderクラスの導入](#8-finderクラスの導入)
-  - [9. Serviceクラスの導入](#9-serviceクラスの導入)
+  - [6. ServiceResponse クラスの導入](#6-serviceresponse-クラスの導入)
+  - [7. Decorator クラスの導入](#7-decorator-クラスの導入)
+  - [8. Finder クラスの導入](#8-finder-クラスの導入)
+  - [9. Service クラスの導入](#9-service-クラスの導入)
 
 ---
 
@@ -109,22 +109,22 @@ TODO App に関するドキュメントを記述.
 
 - セットアップ手順書や初期データ投入手順など、機能開発に必要な手順をドキュメント化した.
 
-### 6. ServiceResponseクラスの導入
+### 6. ServiceResponse クラスの導入
 
-- GitLabで採用されているServiceResponseクラスを導入し、煩雑になりがちがService層の戻り値にルールを定義した.
+- GitLab で採用されている ServiceResponse クラスを導入し、煩雑になりがちが Service 層の戻り値にルールを定義した.
 
-### 7. Decoratorクラスの導入
+### 7. Decorator クラスの導入
 
 - モデルの振る舞いとして実装するのが正解だが、フロントエンドでしか利用しない振る舞いを記述するクラスとして採用した.
 
-### 8. Finderクラスの導入
+### 8. Finder クラスの導入
 
 - 検索ロジックをまとめるクラスとして導入.
-- 検索フォームに名前付けを行い、strong_parameterとfinderクラスに関連させることで、コードの保守性を高めるのが狙い.
+- 検索フォームに名前付けを行い、strong_parameter と finder クラスに関連させることで、コードの保守性を高めるのが狙い.
 
-### 9. Serviceクラスの導入
+### 9. Service クラスの導入
 
-- モデルに対するCRUD操作をServiceクラスとして実装した.
-- モデルを更新する前の事前処理がある場合に、ActiveRecordのコールバックで実装してしまうとコールバック地獄になる保守性が低下していまう.
-- UpdateServiceクラスとして実装し、クラス内で事前処理を行うことで保守性を向上させるのが狙い.
-- そのほか、モデルの振る舞いとして不適切なビジネスロジックなどを、Serviceクラスとして実装する予定.
+- モデルに対する CRUD 操作を Service クラスとして実装した.
+- モデルを更新する前の事前処理がある場合に、ActiveRecord のコールバックで実装してしまうとコールバック地獄になる保守性が低下していまう.
+- UpdateService クラスとして実装し、クラス内で事前処理を行うことで保守性を向上させるのが狙い.
+- そのほか、モデルの振る舞いとして不適切なビジネスロジックなどを、Service クラスとして実装する予定.
