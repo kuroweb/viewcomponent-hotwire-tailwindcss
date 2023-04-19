@@ -1,4 +1,4 @@
-# DB / index
+# db / erd
 
 ## 関連コマンド
 

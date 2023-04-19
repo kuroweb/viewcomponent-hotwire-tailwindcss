@@ -51,8 +51,11 @@ TODO Appに関するドキュメントを記述.
 
 ## 関連コマンド
 
-- [Hotwire, ViewComponent](doc/hotwire/index.md)
-- [rails-erd](doc/db/index.md)
+- [rspec](doc/test/rspec.md)
+- [seed](doc/db/seed.md)
+- [rails-erd](doc/db/erd.md)
+- [Hotwire](doc/frontend/hotwire.md)
+- [ViewComponent](doc/frontend/view_component.md)
 
 ---
 

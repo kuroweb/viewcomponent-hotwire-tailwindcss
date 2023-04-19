@@ -1,4 +1,4 @@
-# hotwire / index
+# frontend / view_component
 
 ## 関連コマンド
 
