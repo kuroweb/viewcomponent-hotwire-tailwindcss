@@ -2,6 +2,7 @@ import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
   static values = {};
+  static targets = [];
 
   connect() {
     const DestroyForm = (() => {
@@ -10,7 +11,7 @@ export default class extends Controller {
           e.addEventListener('click', (e) => {
             const formElement = document.getElementById('destroy_task_form');
 
-            formElement.action = `${formElement.action}/${e.currentTarget.dataset.taskId}`;
+            formElement.action = `${formElement.action}/${e.currentTarget.dataset.id}`;
           });
         });
       };

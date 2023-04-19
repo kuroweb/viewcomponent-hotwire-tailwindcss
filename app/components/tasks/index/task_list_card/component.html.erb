@@ -23,7 +23,11 @@
                       type: "button",
                       class: "edit_task_modal",
                       "data-hs-overlay" => "#edit_task_modal",
-                      "data-task-id" => task.id
+                      "data-id" => task.id,
+                      "data-title" => task.title,
+                      "data-summary" => task.summary,
+                      "data-due_date" => task.due_date,
+                      "data-priority" => task.priority
                     ) do %>
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -37,7 +41,7 @@
                       type: "button",
                       class: "destroy_task_modal",
                       "data-hs-overlay" => "#destroy_task_modal",
-                      "data-task-id" => task.id
+                      "data-id" => task.id
                     ) do %>
                   <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
