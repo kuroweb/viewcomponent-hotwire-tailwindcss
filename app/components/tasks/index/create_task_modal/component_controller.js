@@ -5,153 +5,130 @@ import { Japanese } from 'flatpickr/dist/l10n/ja';
 
 export default class extends Controller {
   static values = {};
+  static targets = [
+    // form
+    'createTaskForm',
+
+    // input
+    'titleField',
+    'summaryField',
+    'priorityField',
+    'dueDateField',
+
+    // error_message
+    'titleErrorMessage',
+    'summaryErrorMessage',
+    'priorityErrorMessage',
+    'dueDateErrorMessage',
+  ];
 
   connect() {
     const CreateFormValidation = (() => {
       // タイトル
-      const initTitleValidation = () => {
+      const initTitleValidationEvent = () => {
         const validation = () => {
           const isValid = validationRules.title();
-          const messageElement = document.getElementById('title_field_message');
 
           if (isValid) {
-            messageElement.innerText = '';
+            this.titleErrorMessageTarget.innerText = '';
           } else {
-            messageElement.innerText = 'タイトルが不正です。';
+            this.titleErrorMessageTarget.innerText = 'タイトルが不正です。';
           }
         };
 
-        document
-          .getElementById('title_field')
-          .addEventListener('change', () => validation());
-
-        document
-          .getElementById('title_field')
-          .addEventListener('blur', () => validation());
+        this.titleFieldTarget.addEventListener('change', () => validation());
+        this.titleFieldTarget.addEventListener('blur', () => validation());
       };
 
       // 詳細
-      const initSummaryValidation = () => {
+      const initSummaryValidationEvent = () => {
         const validation = () => {
           const isValid = validationRules.summary();
-          const messageElement = document.getElementById(
-            'summary_field_message'
-          );
 
           if (isValid) {
-            messageElement.innerText = '';
+            this.summaryErrorMessageTarget.innerText = '';
           } else {
-            messageElement.innerText = '詳細が不正です。';
+            this.summaryErrorMessageTarget.innerText = '詳細が不正です。';
           }
         };
 
-        document
-          .getElementById('summary_field')
-          .addEventListener('change', () => validation());
-
-        document
-          .getElementById('summary_field')
-          .addEventListener('blur', () => validation());
+        this.summaryFieldTarget.addEventListener('change', () => validation());
+        this.summaryFieldTarget.addEventListener('blur', () => validation());
       };
 
       // 締切日
-      const initDueDateValidation = () => {
+      const initDueDateValidationEvent = () => {
         const validation = () => {
           const isValid = validationRules.dueDate();
-          const messageElement = document.getElementById(
-            'due_date_field_message'
-          );
 
           if (isValid) {
-            messageElement.innerText = '';
+            this.dueDateErrorMessageTarget.innerText = '';
           } else {
-            messageElement.innerText = '締切日が不正です。';
+            this.dueDateErrorMessageTarget.innerText = '締切日が不正です。';
           }
         };
 
-        document
-          .getElementById('due_date_field')
-          .addEventListener('change', () => validation());
-
-        document
-          .getElementById('due_date_field')
-          .addEventListener('blur', () => validation());
+        this.dueDateFieldTarget.addEventListener('change', () => validation());
+        this.dueDateFieldTarget.addEventListener('blur', () => validation());
       };
 
       // 優先度
-      const initPriorityValidation = () => {
+      const initPriorityValidationEvent = () => {
         const validation = () => {
           const isValid = validationRules.priority();
-          const messageElement = document.getElementById(
-            'priority_field_message'
-          );
 
           if (isValid) {
-            messageElement.innerText = '';
+            this.priorityErrorMessageTarget.innerText = '';
           } else {
-            messageElement.innerText = '優先度が不正です。';
+            this.priorityErrorMessageTarget.innerText = 'タイトルが不正です。';
           }
         };
 
-        document
-          .getElementById('priority_field')
-          .addEventListener('change', () => validation());
-
-        document
-          .getElementById('priority_field')
-          .addEventListener('blur', () => validation());
+        this.priorityFieldTarget.addEventListener('change', () => validation());
+        this.priorityFieldTarget.addEventListener('blur', () => validation());
       };
 
-      // onSubmit時のバリデーション
+      // Submit時のバリデーション
       const initOnSubmit = () => {
-        document
-          .getElementById('create_task_form')
-          .addEventListener('submit', (e) => {
-            document
-              .getElementById('title_field')
-              .dispatchEvent(new Event('change'));
-            document
-              .getElementById('summary_field')
-              .dispatchEvent(new Event('change'));
-            document
-              .getElementById('due_date_field')
-              .dispatchEvent(new Event('change'));
-            document
-              .getElementById('priority_field')
-              .dispatchEvent(new Event('change'));
+        this.createTaskFormTarget.addEventListener('submit', (e) => {
+          this.titleFieldTarget.dispatchEvent(new Event('change'));
+          this.summaryFieldTarget.dispatchEvent(new Event('change'));
+          this.dueDateFieldTarget.dispatchEvent(new Event('change'));
+          this.priorityFieldTarget.dispatchEvent(new Event('change'));
 
-            if (!validationRules.title()) return e.preventDefault();
-            if (!validationRules.summary()) return e.preventDefault();
-            if (!validationRules.dueDate()) return e.preventDefault();
-            if (!validationRules.priority()) return e.preventDefault();
-          });
+          if (!validationRules.title()) return e.preventDefault();
+          if (!validationRules.summary()) return e.preventDefault();
+          if (!validationRules.dueDate()) return e.preventDefault();
+          if (!validationRules.priority()) return e.preventDefault();
+        });
       };
 
       // バリデーションロジック
       const validationRules = {
         title: () => {
-          const titleValue = document.getElementById('title_field').value;
-          return titleValue.length !== 0;
+          return this.titleFieldTarget.value.length !== 0;
         },
         summary: () => {
           return true;
         },
         dueDate: () => {
-          const dueDateValue = document.getElementById('due_date_field').value;
-          return validator.isDate(dueDateValue, { format: 'YYYY/MM/DD' });
+          return validator.isDate(this.dueDateFieldTarget.value, {
+            format: 'YYYY/MM/DD',
+          });
         },
         priority: () => {
-          const priorityValue = document.getElementById('priority_field').value;
-          return ['high', 'medium', 'low'].includes(priorityValue);
+          return ['high', 'medium', 'low'].includes(
+            this.priorityFieldTarget.value
+          );
         },
       };
 
       return {
         init: () => {
-          initTitleValidation();
-          initSummaryValidation();
-          initDueDateValidation();
-          initPriorityValidation();
+          initTitleValidationEvent();
+          initSummaryValidationEvent();
+          initDueDateValidationEvent();
+          initPriorityValidationEvent();
           initOnSubmit();
         },
       };
@@ -163,9 +140,7 @@ export default class extends Controller {
         flatpickr.localize(Japanese);
 
         // 締切日フォームを初期化
-        flatpickr('#due_date_field', {
-          dateFormat: 'Y/m/d',
-        });
+        flatpickr(this.dueDateFieldTarget, { dateFormat: 'Y/m/d' });
       };
 
       return {
