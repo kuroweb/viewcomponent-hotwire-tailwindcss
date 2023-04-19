@@ -20,7 +20,7 @@
     <%= render(Tasks::Index::SearchCardComponent.new(search_params)) %>
   </div>
   <div class="col-span-12 md:col-span-9">
-    <%= render(Tasks::Index::TaskListCardComponent.new(@tasks)) %>
+    <%= render(Tasks::Index::TaskListCardComponent.new(@tasks, search_params)) %>
   </div>
 </div>
 <%= render(Tasks::Index::CreateTaskModalComponent.new("create_task_modal")) %>

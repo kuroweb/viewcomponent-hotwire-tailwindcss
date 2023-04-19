@@ -57,5 +57,48 @@
         <% end %>
       </tbody>
     </table>
+    <div class="py-1 px-4 border-t">
+      <nav class="flex items-center space-x-2">
+        <% if @tasks.first_page? %>
+          <div class="text-gray-400 p-4 inline-flex items-center gap-2 font-medium rounded-md">
+            <span>«</span>
+          </div>
+        <% else %>
+          <%= link_to(
+                "«",
+                tasks_path(search: @search_params, page: 1),
+                { class: "text-gray-400 hover:text-blue-600 p-4 inline-flex items-center gap-2 font-medium rounded-md" }
+              ) %>
+        <% end %>
+        <% if @tasks.prev_page %>
+          <%= link_to(
+                @tasks.prev_page,
+                tasks_path(search: @search_params, page: @tasks.prev_page),
+                { class: "w-10 h-10 text-gray-400 hover:text-blue-600 p-4 inline-flex items-center text-sm font-medium rounded-full" }
+              ) %>
+        <% end %>
+        <div class="w-10 h-10 bg-blue-500 text-white p-4 inline-flex items-center text-sm font-medium rounded-full" aria-current="page">
+          <%= @tasks.current_page %>
+        </div>
+        <% if @tasks.next_page %>
+          <%= link_to(
+                @tasks.next_page,
+                tasks_path(search: @search_params, page: @tasks.next_page),
+                { class: "w-10 h-10 text-gray-400 hover:text-blue-600 p-4 inline-flex items-center text-sm font-medium rounded-full" }
+              ) %>
+        <% end %>
+        <% if @tasks.last_page? || @tasks.total_pages.zero? %>
+          <div class="text-gray-400 p-4 inline-flex items-center gap-2 font-medium rounded-md">
+            <span>»</span>
+          </div>
+        <% else %>
+          <%= link_to(
+                "»",
+                tasks_path(search: @search_params, page: @tasks.total_pages),
+                { class: "text-gray-400 hover:text-blue-600 p-4 inline-flex items-center gap-2 font-medium rounded-md" }
+              ) %>
+        <% end %>
+      </nav>
+    </div>
   </div>
 </div>

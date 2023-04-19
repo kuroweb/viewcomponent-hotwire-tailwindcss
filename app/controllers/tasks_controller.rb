@@ -5,6 +5,8 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Tasks::SearchFinder.call(relation: current_user.tasks, params: search_params)
+                                .order(created_at: :desc)
+                                .page(params[:page])
   end
 
   def edit; end
