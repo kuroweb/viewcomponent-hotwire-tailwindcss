@@ -67,7 +67,14 @@ docker compose up -d
 docker attach $(docker-compose ps -q web)
 ```
 
-### 6. 完了
+### 6. seedファイルに定義したアカウントでログイン
+
+| id                       | pass    |
+| ------------------------ | ------- |
+| current_user@example.com | example |
+| other_user@example.com   | example |
+
+### 7. 画面にアクセス
 
 ブラウザから各画面にアクセスして表示されることを確認.
 
@@ -75,3 +82,5 @@ docker attach $(docker-compose ps -q web)
 | -------------- | ----------------------------- |
 | タスク一覧画面 | http://localhost:3000/tasks   |
 | ログイン画面   | http://localhost:3000/sign_in |
+
+### 8. 完了
