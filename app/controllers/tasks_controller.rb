@@ -9,8 +9,6 @@ class TasksController < ApplicationController
                                 .page(params[:page])
   end
 
-  def edit; end
-
   def create
     result = Tasks::CreateService.call(params: create_task_params)
 
