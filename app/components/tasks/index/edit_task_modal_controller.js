@@ -153,13 +153,23 @@ export default class extends Controller {
 
       // 更新モーダルにTaskの情報を反映
       const initFormAction = () => {
-        document.querySelectorAll('.edit_task_modal').forEach((e) => {
-          e.addEventListener('click', (e) => {
-            this.editTaskFormTarget.action = `/tasks/${e.currentTarget.dataset.id}`;
-            this.titleFieldTarget.value = e.currentTarget.dataset.title;
-            this.summaryFieldTarget.value = e.currentTarget.dataset.summary;
-            this.dueDateFieldTarget.value = e.currentTarget.dataset.due_date;
-            this.priorityFieldTarget.value = e.currentTarget.dataset.priority;
+        document.querySelectorAll('.edit_task_modal').forEach((element) => {
+          element.addEventListener('click', (event) => {
+            // 更新対象のTask.idを取得
+            const taskId = event.currentTarget.dataset.id;
+
+            // URLパラメータを取得
+            const url = new URL(location.href);
+            const params = url.searchParams.toString();
+
+            // actionを更新
+            this.editTaskFormTarget.action = `/tasks/${taskId}?${params}`;
+
+            // 入力フォームの初期値を更新
+            this.titleFieldTarget.value = event.currentTarget.dataset.title;
+            this.summaryFieldTarget.value = event.currentTarget.dataset.summary;
+            this.dueDateFieldTarget.value = event.currentTarget.dataset.due_date;
+            this.priorityFieldTarget.value = event.currentTarget.dataset.priority;
           });
         });
       };

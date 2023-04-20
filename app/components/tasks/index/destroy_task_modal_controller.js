@@ -7,9 +7,17 @@ export default class extends Controller {
   connect() {
     const DestroyForm = (() => {
       const init = () => {
-        document.querySelectorAll('.destroy_task_modal').forEach((e) => {
-          e.addEventListener('click', (e) => {
-            this.destroyTaskFormTarget.action = `/tasks/${e.currentTarget.dataset.id}`;
+        document.querySelectorAll('.destroy_task_modal').forEach((element) => {
+          element.addEventListener('click', (event) => {
+            // 更新対象のTask.idを取得
+            const taskId = event.currentTarget.dataset.id;
+
+            // URLパラメータを取得
+            const url = new URL(location.href);
+            const params = url.searchParams.toString();
+
+            // actionを更新
+            this.destroyTaskFormTarget.action = `/tasks/${taskId}?${params}`;
           });
         });
       };

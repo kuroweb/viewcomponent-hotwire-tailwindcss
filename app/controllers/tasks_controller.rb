@@ -15,9 +15,9 @@ class TasksController < ApplicationController
     result = Tasks::CreateService.call(params: create_task_params)
 
     if result.success?
-      redirect_to tasks_path, flash: { notice: "タスクを追加しました。" } # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to tasks_path(params.as_json), flash: { notice: "タスクを追加しました。" } # rubocop:disable Rails/I18nLocaleTexts
     else
-      redirect_to tasks_path, flash: { alert: "タスクを追加できませんでした。" } # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to tasks_path(params.as_json), flash: { alert: "タスクを追加できませんでした。" } # rubocop:disable Rails/I18nLocaleTexts
     end
   end
 
@@ -29,9 +29,9 @@ class TasksController < ApplicationController
     result = Tasks::UpdateService.call(task:, params: update_task_params)
 
     if result.success?
-      redirect_to tasks_path, flash: { notice: "タスクを更新しました。" } # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to tasks_path(params.as_json), flash: { notice: "タスクを更新しました。" } # rubocop:disable Rails/I18nLocaleTexts
     else
-      redirect_to tasks_path, flash: { alert: "タスクを更新できませんでした。" } # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to tasks_path(params.as_json), flash: { alert: "タスクを更新できませんでした。" } # rubocop:disable Rails/I18nLocaleTexts
     end
   end
 
@@ -43,9 +43,9 @@ class TasksController < ApplicationController
     result = Tasks::DestroyService.call(task:)
 
     if result.success?
-      redirect_to tasks_path, flash: { notice: "タスクを削除しました。" } # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to tasks_path(params.as_json), flash: { notice: "タスクを削除しました。" } # rubocop:disable Rails/I18nLocaleTexts
     else
-      redirect_to tasks_path, flash: { alert: "タスクを削除できませんでした。" } # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to tasks_path(params.as_json), flash: { alert: "タスクを削除できませんでした。" } # rubocop:disable Rails/I18nLocaleTexts
     end
   end
 

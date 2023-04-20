@@ -151,9 +151,20 @@ export default class extends Controller {
         flatpickr(this.dueDateFieldTarget, { dateFormat: 'Y/m/d' });
       };
 
+      // 作成モーダルにTaskの情報を反映
+      const initFormAction = () => {
+        // URLパラメータを取得
+        const url = new URL(location.href);
+        const params = url.searchParams.toString();
+
+        // actionを更新
+        this.createTaskFormTarget.action = `/tasks?${params}`;
+      };
+
       return {
         init: () => {
           initDueDatePicker();
+          initFormAction();
         },
       };
     })();
