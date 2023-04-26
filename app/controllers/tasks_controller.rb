@@ -1,21 +1,21 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
 
-  helper_method :search_params, :paginate_params
+  helper_method :search_params
 
   def index
     @tasks = Tasks::SearchFinder.call(relation: current_user.tasks, params: search_params)
                                 .order(created_at: :desc)
-                                .page(paginate_params[:page])
+                                .page(params[:page])
   end
 
   def create
     result = Tasks::CreateService.call(params: create_task_params)
 
     if result.success?
-      redirect_to tasks_path(search: search_params, paginate: paginate_params), flash: { notice: "タスクを追加しました。" } # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to tasks_path(search: search_params, page: params[:page]), flash: { notice: "タスクを追加しました。" } # rubocop:disable Rails/I18nLocaleTexts
     else
-      redirect_to tasks_path(search: search_params, paginate: paginate_params), flash: { alert: "タスクを追加できませんでした。" } # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to tasks_path(search: search_params, page: params[:page]), flash: { alert: "タスクを追加できませんでした。" } # rubocop:disable Rails/I18nLocaleTexts
     end
   end
 
@@ -27,9 +27,9 @@ class TasksController < ApplicationController
     result = Tasks::UpdateService.call(task:, params: update_task_params)
 
     if result.success?
-      redirect_to tasks_path(search: search_params, paginate: paginate_params), flash: { notice: "タスクを更新しました。" } # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to tasks_path(search: search_params, page: params[:page]), flash: { notice: "タスクを更新しました。" } # rubocop:disable Rails/I18nLocaleTexts
     else
-      redirect_to tasks_path(search: search_params, paginate: paginate_params), flash: { alert: "タスクを更新できませんでした。" } # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to tasks_path(search: search_params, page: params[:page]), flash: { alert: "タスクを更新できませんでした。" } # rubocop:disable Rails/I18nLocaleTexts
     end
   end
 
@@ -41,9 +41,9 @@ class TasksController < ApplicationController
     result = Tasks::DestroyService.call(task:)
 
     if result.success?
-      redirect_to tasks_path(search: search_params, paginate: paginate_params), flash: { notice: "タスクを削除しました。" } # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to tasks_path(search: search_params, page: params[:page]), flash: { notice: "タスクを削除しました。" } # rubocop:disable Rails/I18nLocaleTexts
     else
-      redirect_to tasks_path(search: search_params, paginate: paginate_params), flash: { alert: "タスクを削除できませんでした。" } # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to tasks_path(search: search_params, page: params[:page]), flash: { alert: "タスクを削除できませんでした。" } # rubocop:disable Rails/I18nLocaleTexts
     end
   end
 
@@ -53,12 +53,6 @@ class TasksController < ApplicationController
     return {} if params[:search].blank?
 
     params.require(:search).permit(:title, :summary, :priority, { due_date: %i[start_date end_date] })
-  end
-
-  def paginate_params
-    return {} if params[:paginate].blank?
-
-    params.require(:paginate).permit(:page, :per_page)
   end
 
   def create_task_params
