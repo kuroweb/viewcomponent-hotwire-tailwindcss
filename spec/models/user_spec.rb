@@ -1,12 +1,3 @@
-#============
-# テストケース
-#============
-# User
-#   association
-#     has_many: tasks
-#       アソシエーション先のTaskモデルを取得できること
-#       Userモデルを削除したときに、Taskモデルも削除されること
-
 require "rails_helper"
 
 RSpec.describe User do

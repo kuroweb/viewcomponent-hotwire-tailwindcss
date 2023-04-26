@@ -1,12 +1,3 @@
-#============
-# テストケース
-#============
-# TaskDecorator
-#   #readable_priority
-#     整形済みの値を返却すること
-#   #readable_due_date
-#     整形済みの値を返却すること
-
 require "rails_helper"
 
 RSpec.describe TaskDecorator do
