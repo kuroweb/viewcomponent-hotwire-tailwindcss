@@ -66,4 +66,7 @@ RSpec.configure do |config|
 
   # MEMO: FactoryBotを使用するため
   config.include FactoryBot::Syntax::Methods
+
+  # MEMO: Deviseを使用するため
+  config.include Devise::Test::IntegrationHelpers, type: :request
 end
