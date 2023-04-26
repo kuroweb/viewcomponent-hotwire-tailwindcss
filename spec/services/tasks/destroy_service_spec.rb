@@ -1,13 +1,3 @@
-#============
-# テストケース
-#============
-# Tasks::DestroyService
-#   #call
-#     taskパラメータが「正常」な場合
-#       「ServiceResponse.success」を返却すること
-#     「taskパラメータ」が不正な場合
-#       「StandardError」を返却すること
-
 require "rails_helper"
 
 RSpec.describe Tasks::DestroyService do

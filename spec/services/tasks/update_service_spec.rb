@@ -1,21 +1,3 @@
-#============
-# テストケース
-#============
-# Tasks::UpdateService
-#   #call
-#     パラメータがすべて正しい場合
-#       「ServiceResponse.success」を返却すること
-#     taskパラメータ」が不正な場合
-#       「StandardError」を返却すること」を返却すること
-#     「titleパラメータ」が不正な場合
-#       「ServiceResponse.error」を返却すること
-#     「summaryパラメータ」が不正な場合
-#       「ServiceResponse.error」を返却すること
-#     「due_dateパラメータ」が不正な場合
-#       「ServiceResponse.error」を返却すること
-#     「priorityパラメータ」が不正な場合
-#       「ServiceResponse.error」を返却すること
-
 require "rails_helper"
 
 RSpec.describe Tasks::UpdateService do
