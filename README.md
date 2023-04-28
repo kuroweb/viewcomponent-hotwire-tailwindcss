@@ -41,7 +41,7 @@ Docker Componse で node_modules ボリュームをバインドするために�
 todo-app/
   ├─ app
   ├─ ...
-  ├─ node_modules // <- このフォルダを作成
+  ├─ node_modules // このフォルダを作成
   └─ ...
 ```
 
