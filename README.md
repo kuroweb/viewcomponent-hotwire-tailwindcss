@@ -19,6 +19,7 @@ Hotwire + ViewComponent + TailwindCSS の組み合わせにより、`/components
   - [6. seed ファイルに定義したアカウントでログイン](#6-seed-ファイルに定義したアカウントでログイン)
   - [7. 画面にアクセス](#7-画面にアクセス)
   - [8. 完了](#8-完了)
+- [Command](#command)
 
 ---
 
@@ -97,3 +98,10 @@ docker compose up
 | ログイン画面   | http://localhost:3000/sign_in |
 
 ### 8. 完了
+
+## Command
+
+- view_component と stimulus コントローラをジェネレート
+  - `rails generate component Hoge::Fuga --stimulus`
+- stimulus コントローラを index.js に登録(rake コマンドで拡張したもの)
+  - `rails view_component:stimulus_manifest:update`
