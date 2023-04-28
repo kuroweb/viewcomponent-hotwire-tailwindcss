@@ -16,7 +16,7 @@ RSpec.describe Tasks do
 
   describe "POST #create" do
     context "リクエスト内容が正常な場合" do
-      let!(:create_task_params) { attributes_for(:task).merge(user:) }
+      let!(:create_task_params) { attributes_for(:task) }
 
       before do
         sign_in user
@@ -40,14 +40,35 @@ RSpec.describe Tasks do
     end
 
     context "リクエスト内容が不正な場合" do
-      # 未実装
+      let!(:create_task_params) { attributes_for(:task, title: nil) }
+
+      before do
+        sign_in user
+      end
+
+      it "リクエストが成功すること" do
+        post tasks_path, params: { task: create_task_params }
+        expect(response).to have_http_status(:found)
+      end
+
+      it "タスクが追加されること" do
+        expect do
+          post tasks_path, params: { task: create_task_params }
+        end.not_to change(Task, :count)
+      end
+
+      it "tasks_pathにリダイレクトされること" do
+        post tasks_path, params: { task: create_task_params }
+        expect(response).to redirect_to tasks_path
+      end
     end
   end
 
   describe "PUT #update" do
+    let!(:task) { create(:task, user:, title: "before_title") }
+
     context "リクエスト内容が正常な場合" do
-      let!(:task) { create(:task, user:, title: "title") }
-      let!(:update_task_params) { attributes_for(:task, title: "hoge") }
+      let!(:update_task_params) { attributes_for(:task, title: "after_title") }
 
       before do
         sign_in user
@@ -62,7 +83,7 @@ RSpec.describe Tasks do
         expect do
           put task_path(task.id), params: { task: update_task_params }
           task.reload
-        end.to change(task, :title).from("title").to("hoge")
+        end.to change(task, :title).from("before_title").to("after_title")
       end
 
       it "tasks_pathにリダイレクトされること" do
@@ -72,7 +93,28 @@ RSpec.describe Tasks do
     end
 
     context "リクエスト内容が不正な場合" do
-      # 未実装
+      let!(:update_task_params) { attributes_for(:task, title: nil) }
+
+      before do
+        sign_in user
+      end
+
+      it "リクエストが成功すること" do
+        put task_path(task.id), params: { task: update_task_params }
+        expect(response).to have_http_status(:found)
+      end
+
+      it "タスクのタイトルが更新されること" do
+        expect do
+          put task_path(task.id), params: { task: update_task_params }
+          task.reload
+        end.not_to change(task, :title)
+      end
+
+      it "tasks_pathにリダイレクトされること" do
+        put task_path(task.id), params: { task: update_task_params }
+        expect(response).to redirect_to tasks_path
+      end
     end
   end
 
