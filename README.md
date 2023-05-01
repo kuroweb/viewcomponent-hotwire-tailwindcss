@@ -38,7 +38,7 @@ Hotwire + ViewComponent + TailwindCSS の組み合わせにより、`/components
 Docker Componse で node_modules ボリュームをバインドするために必要.
 
 ```shell
-todo-app/
+viewcomponent-hotwire-tailwindcss/
   ├─ app
   ├─ ...
   ├─ node_modules // このフォルダを作成
