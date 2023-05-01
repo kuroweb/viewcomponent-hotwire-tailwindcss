@@ -1,4 +1,4 @@
-# TODO App<!-- omit in toc -->
+# ViewComponent + Hotwire + TailwindCSS<!-- omit in toc -->
 
 Rails7, Hotwire, ViewComponent, TailwindCSS でのサンプルプロジェクト.
 
@@ -10,7 +10,7 @@ Hotwire + ViewComponent + TailwindCSS の組み合わせにより、`/components
 
 - [Version](#version)
 - [Install](#install)
-  - [1. node_modules フォルダを作成](#1-node_modules-フォルダを作成)
+  - [1. node\_modules フォルダを作成](#1-node_modules-フォルダを作成)
   - [2. env ファイルを作成](#2-env-ファイルを作成)
   - [3. Docker イメージを作成](#3-docker-イメージを作成)
   - [4. database を作成](#4-database-を作成)
