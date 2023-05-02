@@ -20,6 +20,8 @@ Hotwire + ViewComponent + TailwindCSS の組み合わせにより、`/components
   - [7. 画面にアクセス](#7-画面にアクセス)
   - [8. 完了](#8-完了)
 - [Command](#command)
+- [Other](#other)
+  - [ViewComponentのプレビュー](#viewcomponentのプレビュー)
 
 ---
 
@@ -105,3 +107,9 @@ docker compose up
   - `rails generate component Hoge::Fuga --stimulus --preview`
 - stimulus コントローラを index.js に登録(rake コマンドで拡張したもの)
   - `rails view_component:stimulus_manifest:update`
+
+## Other
+
+### ViewComponentのプレビュー
+
+`/rails/view_components`からコンポーネント単位でのプレビューを確認できる
