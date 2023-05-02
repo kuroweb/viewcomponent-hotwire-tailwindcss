@@ -102,6 +102,6 @@ docker compose up
 ## Command
 
 - view_component と stimulus コントローラをジェネレート
-  - `rails generate component Hoge::Fuga --stimulus`
+  - `rails generate component Hoge::Fuga --stimulus --preview`
 - stimulus コントローラを index.js に登録(rake コマンドで拡張したもの)
   - `rails view_component:stimulus_manifest:update`
