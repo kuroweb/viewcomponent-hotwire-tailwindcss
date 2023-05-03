@@ -14,7 +14,7 @@ RSpec.describe Layouts::BreadcrumbComponent, type: :component do
           render_preview(:default)
 
           expect(page).to have_selector("a", text: "Hoge")
-          expect(page).to have_link("Hoge", href: "/")
+          expect(page).to have_link("Hoge", href: "/hoge")
           expect(page).to have_selector("a", text: "Fuga")
           expect(page).to have_link("Fuga", href: "/fuga")
           expect(page).to have_selector("span.font-semibold", text: "Me")

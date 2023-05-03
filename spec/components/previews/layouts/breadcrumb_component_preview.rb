@@ -6,7 +6,7 @@ module Layouts
       render(
         Layouts::BreadcrumbComponent.new(
           [
-            { name: "Hoge", url: "/" },
+            { name: "Hoge", url: "/hoge" },
             { name: "Fuga", url: "/fuga" },
             { name: "Me", url: "" }
           ]
