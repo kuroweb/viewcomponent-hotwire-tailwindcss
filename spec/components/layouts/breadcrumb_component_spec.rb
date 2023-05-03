@@ -4,7 +4,7 @@ RSpec.describe Layouts::BreadcrumbComponent, type: :component do
   describe "#render" do
     context "パラメータが正常な場合" do
       context "「任意の正常な値」の場合" do
-        it "表示に成功すること" do
+        it "画面表示に成功すること" do
           render_preview(:with_valid_array)
 
           expect(page).to be_truthy
@@ -23,7 +23,7 @@ RSpec.describe Layouts::BreadcrumbComponent, type: :component do
       end
 
       context "「空配列」の場合" do
-        it "表示に成功すること" do
+        it "画面表示に成功すること" do
           render_preview(:with_blank_array)
 
           expect(page).to be_truthy
