@@ -1,5 +1,4 @@
 ENV["RAILS_ENV"] ||= "test"
-abort("The Rails environment is running in production mode!") if Rails.env.production?
 
 require "spec_helper"
 require_relative "../config/environment"
@@ -7,6 +6,8 @@ require_relative "../config/environment"
 require "rspec/rails"
 require "capybara/rspec"
 require "view_component/test_helpers"
+
+abort("The Rails environment is running in production mode!") if Rails.env.production?
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
