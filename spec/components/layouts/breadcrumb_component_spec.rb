@@ -13,11 +13,11 @@ RSpec.describe Layouts::BreadcrumbComponent, type: :component do
         it "パンくずの表示内容が正しいこと" do
           render_preview(:default)
 
-          expect(page).to have_selector("a.items-center", text: "Hoge")
+          expect(page).to have_selector("a", text: "Hoge")
           expect(page).to have_link("Hoge", href: "/")
-          expect(page).to have_selector("a.items-center", text: "Fuga")
+          expect(page).to have_selector("a", text: "Fuga")
           expect(page).to have_link("Fuga", href: "/fuga")
-          expect(page).to have_selector("li.font-semibold", text: "Me")
+          expect(page).to have_selector("span.font-semibold", text: "Me")
           expect(page).not_to have_link("Me", href: "/")
         end
       end
@@ -32,8 +32,8 @@ RSpec.describe Layouts::BreadcrumbComponent, type: :component do
         it "パンくずが表示されないこと" do
           render_preview(:with_blank_array)
 
-          expect(page).not_to have_selector("a.items-center")
-          expect(page).not_to have_selector("li.font-semibold")
+          expect(page).not_to have_selector("a")
+          expect(page).not_to have_selector("span.font-semibold")
         end
       end
     end

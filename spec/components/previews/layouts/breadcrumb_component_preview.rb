@@ -6,9 +6,9 @@ module Layouts
       render(
         Layouts::BreadcrumbComponent.new(
           [
-            { name: "Hoge", url: "/", class_name: "" },
-            { name: "Fuga", url: "/fuga", class_name: "" },
-            { name: "Me", url: "", class_name: "font-semibold" }
+            { name: "Hoge", url: "/" },
+            { name: "Fuga", url: "/fuga" },
+            { name: "Me", url: "" }
           ]
         )
       )
