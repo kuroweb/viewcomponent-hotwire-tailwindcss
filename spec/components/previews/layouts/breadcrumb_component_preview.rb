@@ -2,7 +2,7 @@
 
 module Layouts
   class BreadcrumbComponentPreview < ViewComponent::Preview
-    def default
+    def with_valid_array
       render(
         Layouts::BreadcrumbComponent.new(
           [

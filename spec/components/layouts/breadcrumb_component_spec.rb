@@ -5,13 +5,13 @@ RSpec.describe Layouts::BreadcrumbComponent, type: :component do
     context "パラメータが正常な場合" do
       context "「任意の正常な値」の場合" do
         it "表示に成功すること" do
-          render_preview(:default)
+          render_preview(:with_valid_array)
 
           expect(page).to be_truthy
         end
 
         it "パンくずの表示内容が正しいこと" do
-          render_preview(:default)
+          render_preview(:with_valid_array)
 
           expect(page).to have_selector("a", text: "Hoge")
           expect(page).to have_link("Hoge", href: "/hoge")

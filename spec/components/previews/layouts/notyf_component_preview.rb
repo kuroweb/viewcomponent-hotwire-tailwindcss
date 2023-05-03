@@ -2,7 +2,7 @@
 
 module Layouts
   class NotyfComponentPreview < ViewComponent::Preview
-    def default
+    def with_blank
       render(NotyfComponent.new(ActionDispatch::Flash::FlashHash.new))
     end
 
