@@ -22,7 +22,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -75,5 +75,4 @@ RSpec.configure do |config|
   # MEMO: ViewComponent::TestHelpersを使用するため
   config.include ViewComponent::TestHelpers, type: :component
   config.include ViewComponent::SystemTestHelpers, type: :component
-  config.include Capybara::RSpecMatchers, type: :component
 end
