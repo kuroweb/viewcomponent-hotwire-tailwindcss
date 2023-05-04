@@ -17,8 +17,8 @@ services:
     tty: true
     volumes:
       - ./:/app
-      - web-bundle:/usr/local/bundle:delegated
-      - node-modules:/app/node_modules:delegated
+      - web-bundle:/usr/local/bundle
+      - node-modules:/app/node_modules
     command: >
       bash -c "
         rm -f /app/tmp/pids/server.pid
@@ -43,7 +43,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - mysql-data:/var/lib/mysql:delegated
+      - mysql-data:/var/lib/mysql
 
 volumes:
   web-bundle:
