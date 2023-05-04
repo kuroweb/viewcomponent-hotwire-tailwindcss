@@ -1,9 +1,26 @@
+Capybara.register_driver :remote_chrome do |app|
+  url = ENV.fetch("SELENIUM_DRIVER_URL")
+  capabilities = Selenium::WebDriver::Options.chrome(
+    "goog:chromeOptions" => {
+      "args" => [
+        "no-sandbox",
+        "headless",
+        "disable-gpu",
+        "window-size=1680,1050"
+      ]
+    }
+  )
+  Capybara::Selenium::Driver.new(app, browser: :remote, url:, capabilities:)
+end
+
 RSpec.configure do |config|
   config.before(:each, type: :system) do
-    # Spec実行時、ブラウザが自動で立ち上がり挙動を確認できる
-    # driven_by(:selenium_chrome)
+    driven_by :rack_test
+  end
 
-    # Spec実行時、ブラウザOFF
-    driven_by(:selenium_chrome_headless)
+  config.before(:each, js: true, type: :system) do
+    Capybara.server_host = IPSocket.getaddress(Socket.gethostname)
+    Capybara.app_host = "http://#{Capybara.server_host}"
+    driven_by :remote_chrome
   end
 end

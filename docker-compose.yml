@@ -10,8 +10,11 @@ services:
     depends_on:
       db:
         condition: service_healthy
+      chrome:
+        condition: service_started
     environment:
       DATABASE_HOST: db
+      SELENIUM_DRIVER_URL: http://chrome:4444/wd/hub
     env_file: .env
     stdin_open: true
     tty: true
@@ -44,6 +47,14 @@ services:
     tty: true
     volumes:
       - mysql-data:/var/lib/mysql
+
+  chrome:
+    image: seleniarm/standalone-chromium
+    ports:
+      - 4444:4444
+    shm_size: 2gb
+    stdin_open: true
+    tty: true
 
 volumes:
   web-bundle:
