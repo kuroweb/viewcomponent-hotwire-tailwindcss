@@ -40,7 +40,7 @@ Hotwire + ViewComponent + TailwindCSS の組み合わせにより、`/components
 Docker Componse で node_modules ボリュームをバインドするために必要.
 
 ```shell
-viewcomponent-hotwire-tailwindcss/
+./
   ├─ app
   ├─ ...
   ├─ node_modules // このフォルダを作成
@@ -52,7 +52,7 @@ viewcomponent-hotwire-tailwindcss/
 `.env`に記述したクレデンシャルは、`docker-compose.yml`経由でプロジェクト内に環境変数として登録される.(※本プロジェクトでは未使用)
 
 ```shell
-todo-app/
+./
   ├─ app
   ├─ ...
   ├─ .env // このファイルを作成
